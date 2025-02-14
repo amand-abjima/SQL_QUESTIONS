@@ -1,0 +1,19 @@
+/*Use the Query Designer in SQL Server Management Studio to join multiple tables in a database of music.
+
+*/
+
+SELECT * FROM ARTIST;
+
+SELECT * FROM ALBUM;
+
+SELECT * FROM TRACK;
+
+SELECT T1.ARTIST AS 'ARTIST NAME',
+       T2.TITLE AS 'ALBUM NAME',
+	   T3.TRACK_NAME AS 'TRACK NAME'
+	   FROM ARTIST T1 JOIN ALBUM T2
+	   ON T1.ARTIST_ID = T2.ARTIST_ID 
+	   JOIN TRACK T3 
+	   ON T2.ALBUM_ID = T3.ALBUM_ID
+	   WHERE T3.TRACK_NAME LIKE '%EASY%' OR T3.TRACK_NAME LIKE '%SIMPLE%'
+	   ORDER BY 'ALBUM NAME';
