@@ -1,0 +1,14 @@
+/*Join two tables together in SQL, using alias table names.
+
+*/
+
+SELECT * FROM TBLDOCTOR;
+
+SELECT * FROM TBLEPISODE;
+
+SELECT T1.DOCTORNAME,
+       T2.TITLE
+	   FROM TBLDOCTOR T1
+	   JOIN TBLEPISODE T2 
+	   ON T1.DOCTORID = T2.DOCTORID 
+	   WHERE YEAR(T2.EPISODEDATE) = '2010';
